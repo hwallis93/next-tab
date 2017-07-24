@@ -1,0 +1,21 @@
+// Standard manifest file for a chrome extension
+
+{
+  "manifest_version": 2,
+  "name": "NextTab",
+  "version": "0.1",
+
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
+}
