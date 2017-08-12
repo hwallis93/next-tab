@@ -1,21 +1,43 @@
-// Standard manifest file for a chrome extension
-
 {
-  "manifest_version": 2,
-  "name": "NextTab",
-  "version": "0.1",
 
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": ["content.js"]
-    }
-  ],
-
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  }
+    "name": "Next Tab",
+    "version": "1.0",
+    "description": "Allows users to set key binding to change active tab.",
+    "author": "Henry Wallis",
+    "manifest_version": 2,
+    "short_name": "Next Tab",
+    "background": {
+        "scripts": [
+            "move.js"
+        ],
+        "persistent": false
+    },
+    "commands": {
+        "previous-tab": {
+            "suggested_key": {
+                "default": "Ctrl+Left",
+                "windows": "Ctrl+Left",
+                "mac": "MacCtrl+Left"
+            },
+            "description": "Move to the tab to the left"
+        },
+        "next-tab": {
+            "suggested_key": {
+                "default": "Ctrl+Right",
+                "windows": "Ctrl+Right",
+                "mac": "MacCtrl+Right"
+            },
+            "description": "Move to the tab to the right"
+        }
+    },
+    "permissions": [
+        "tabs",
+        "activeTab"
+    ]
+    //"icons": {
+    //    "16": "icon16.png",
+    //    "32": "icon32.png",
+    //    "48": "icon48.png",
+    //    "128": "icon128.png"
+    //}
 }
